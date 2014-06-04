@@ -49,14 +49,14 @@ productApp.controller('ProductCtrl', ['$scope', 'Product', function($scope, Prod
       product.details = false;
     }
 
-    $scope.editYogurt = function(yogurt) {
-      yogurt.editing = true;
-      yogurt.details = false;
+    $scope.editProduct = function(product) {
+      product.editing = true;
+      product.details = false;
     }
 
-    $scope.updateYogurt = function(yogurt) {
-      yogurt.$update(function() {
-        yogurt.editing = false;
+    $scope.updateProduct = function(product) {
+      product.$update(function() {
+        product.editing = false;
       }, function(errors) {
         $scope.errors = errors.data
       });
