@@ -45,6 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'httparty'
+gem 'angularjs-rails'
 
 gem 'foundation-rails'
 
