@@ -20,33 +20,33 @@ productApp.controller('ProductCtrl', ['$scope', 'Product', function($scope, Prod
 
     $scope.newProduct = new Product();
 
-    Yogurt.query(function(products) {
+    Product.query(function(products) {
       $scope.products = products;
    });
 
-    $scope.saveYogurt = function () {
-      $scope.newYogurt.$save(function(yogurt) {
-        $scope.yogurts.push(yogurt)
-        $scope.newYogurt = new Yogurt();
+    $scope.saveProduct = function () {
+      $scope.newProduct.$save(function(product) {
+        $scope.products.push(product)
+        $scope.newProduct = new Product();
       });
     }
 
-    $scope.deleteYogurt = function (yogurt) {
-      yogurt.$delete(function() {
-        position = $scope.yogurts.indexOf(yogurt);
-        $scope.yogurts.splice(position, 1);
+    $scope.deleteProduct = function (product) {
+      product.$delete(function() {
+        position = $scope.products.indexOf(product);
+        $scope.products.splice(position, 1);
       }, function(errors) {
         $scope.errors = errors.data
       });
     }
 
-    $scope.showYogurt = function(yogurt) {
-      yogurt.details = true;
-      yogurt.editing = false;
+    $scope.showProduct = function(product) {
+      product.details = true;
+      product.editing = false;
     }
 
-    $scope.hideYogurt = function(yogurt) {
-      yogurt.details = false;
+    $scope.hideProduct = function(product) {
+      product.details = false;
     }
 
     $scope.editYogurt = function(yogurt) {
