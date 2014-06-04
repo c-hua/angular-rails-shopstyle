@@ -1,4 +1,5 @@
 PartyTime::Application.routes.draw do
+  get "static/index"
   resources :pages
   # root 'pages#index'
 
