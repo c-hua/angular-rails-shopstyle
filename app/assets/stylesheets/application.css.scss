@@ -11,7 +11,9 @@
  *= require_self
  *= require foundation_and_overrides
  *= require jquery.ui.all
- *= require_tree .
+ *= require_tree 
+ *= require angular
+ *= require angular-resource
  */
 
  img {
