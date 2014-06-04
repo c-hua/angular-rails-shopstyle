@@ -1,0 +1,71 @@
+<div class="row">
+	<h1>Product Search</h1>
+
+	<!-- Display the movie search box. Uses the 'get' method instead of 'post' -->
+	<%= form_tag pages_path, :method => 'get' do %>
+	    Number: <%= number_field_tag :limit, params[:limit] %>
+	    Category: <%= text_field_tag :category, params[:category] %>
+	    Search: <%= text_field_tag :search, params[:search] %>
+	    <%= submit_tag "Search", :name => nil %>
+	<% end %>
+	<br>
+
+
+	<hr>
+
+
+	<div id="cart">
+		<!-- will eventually be a loop going through the products from that list -->
+	  <h1 class="ui-widget-header">List Name</h1>
+	  <div class="ui-widget-content">
+	    <ol>
+	      <li class="placeholder">Add your items here</li>
+	    </ol>
+	  </div>
+	</div>
+
+
+	<br>
+	<!-- INSERT CODE HERE -->
+	<!-- Display the @movie title in an <h2></h2> tag -->
+
+	<div id="products">
+	  <h1 class="ui-widget-header">Products</h1>
+	  <div id="catalog">
+	    
+
+			<dl class="accordion" data-accordion>
+				<div>
+				<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+
+				<% @products.each do |p| %>
+					<li>
+						<dd>
+					    <a href="#product<%= p['id'] %>"><center><%= image_tag p['image']['sizes']['IPhone']['url'] %></center></a>
+					    <div id="product<%= p['id'] %>" class="content">
+					      <h5><%= p['name'] %></h5>
+								<p>Original Price: <%= p['priceLabel'] %><br>
+								<p>Sale Price: <%= p['salePriceLabel'] %><br>
+								<p><%= percent_off((p['priceLabel'].gsub(/[^\d\.]/, '').to_f), (p['salePriceLabel'].gsub(/[^\d\.]/, '').to_f)).round %>% Savings<br><br>
+								<h5><center><%= link_to "GO!", p['clickUrl'] %></center></h5>
+					    </div>
+				  	</dd>
+					</li>
+				<% end %>
+				</ul>
+				</div>
+			</dl>
+
+
+	  </div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
