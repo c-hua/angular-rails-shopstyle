@@ -1,3 +1,5 @@
+angular.module('product-app', ['mm.foundation']);
+
 var productApp = angular.module('product-app', ['ngResource']).config(
     ['$httpProvider', function($httpProvider) {
     var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
